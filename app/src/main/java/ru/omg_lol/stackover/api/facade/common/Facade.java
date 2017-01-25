@@ -1,4 +1,4 @@
-package ru.omg_lol.stackover.api.facades.common;
+package ru.omg_lol.stackover.api.facade.common;
 
 import android.util.Log;
 

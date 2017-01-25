@@ -60,6 +60,7 @@
             android:layout_marginStart="8dp"
             android:lines="1"
             android:text="Q: title of the question"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:textColor="@color/colorTextBlue"
             android:textSize="18sp" />

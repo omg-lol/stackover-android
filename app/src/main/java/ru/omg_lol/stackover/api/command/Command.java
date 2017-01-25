@@ -11,8 +11,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import ru.omg_lol.stackover.App;
 import ru.omg_lol.stackover.Constants;
 import ru.omg_lol.stackover.activity.common.BaseActivity;
-import ru.omg_lol.stackover.api.facades.common.ApiException;
-import ru.omg_lol.stackover.api.facades.common.ApiExceptionType;
+import ru.omg_lol.stackover.api.facade.common.ApiException;
+import ru.omg_lol.stackover.api.facade.common.ApiExceptionType;
 
 public abstract class Command
 {

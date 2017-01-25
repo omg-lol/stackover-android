@@ -6,23 +6,22 @@ import ru.omg_lol.stackover.api.command.Command;
 import ru.omg_lol.stackover.api.command.CommandResult;
 import ru.omg_lol.stackover.api.facade.common.ApiException;
 import ru.omg_lol.stackover.api.facade.questions.QuestionsFacade;
-import ru.omg_lol.stackover.api.response.questions.GetQuestionsResponse;
+import ru.omg_lol.stackover.api.response.questions.GetAnswersResponse;
 
 
-public class GetQuestionsCommand extends Command {
+public class GetAnswersCommand extends Command {
+    private int mId;
 
-    private String mKey;
-
-    public GetQuestionsCommand(String key) {
-        mKey = key;
+    public GetAnswersCommand(int id) {
+        mId = id;
     }
 
     @Override
     protected CommandResult doExecute(Context context) {
-        GetQuestionsResponse response;
+        GetAnswersResponse response;
 
         try {
-            response = QuestionsFacade.getQuestions(mKey);
+            response = QuestionsFacade.getQuestion(mId);
         } catch (ApiException e) {
             return handleException(e);
         }
@@ -30,3 +29,4 @@ public class GetQuestionsCommand extends Command {
         return CommandResult.createSuccessResult(RESULT_VALUE_SUCCESS, response);
     }
 }
+

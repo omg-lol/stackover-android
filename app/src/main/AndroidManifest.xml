@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.QuestionDetailActivity"
+
+            android:screenOrientation="portrait" />
         <service
             android:name=".api.ApiService"
             android:enabled="true"

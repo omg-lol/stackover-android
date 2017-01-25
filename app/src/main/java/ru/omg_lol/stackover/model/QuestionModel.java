@@ -3,6 +3,7 @@ package ru.omg_lol.stackover.model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -17,6 +18,7 @@ public class QuestionModel {
     private int mCreationTimestamp;
     private int mQuestionId;
     private String mTitle;
+    private ArrayList<AnswerModel> mAnswers;
 
     public String[] getTags() {
         return mTags;
@@ -86,5 +88,12 @@ public class QuestionModel {
     }
     public void setTitle(String newValue) {
         mTitle = newValue;
+    }
+
+    public ArrayList<AnswerModel> getAnswers() {
+        return mAnswers;
+    }
+    public void setAnswers(ArrayList<AnswerModel> newValue) {
+        mAnswers = newValue;
     }
 }

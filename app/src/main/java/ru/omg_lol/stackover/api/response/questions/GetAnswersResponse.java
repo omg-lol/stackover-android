@@ -3,15 +3,18 @@ package ru.omg_lol.stackover.api.response.questions;
 import java.util.ArrayList;
 
 import ru.omg_lol.stackover.api.response.ApiResponse;
+import ru.omg_lol.stackover.model.AnswerModel;
 import ru.omg_lol.stackover.model.OwnerModel;
 import ru.omg_lol.stackover.model.QuestionModel;
 
-public class GetQuestionsResponse extends ApiResponse {
+
+public class GetAnswersResponse extends ApiResponse {
     public Question[] items;
 
     public static class Question {
         String[] tags;
         Owner owner;
+        Answer[] answers;
         boolean is_answered;
         int view_count;
         int answer_count;
@@ -31,6 +34,7 @@ public class GetQuestionsResponse extends ApiResponse {
             questionModel.setScore(score);
             questionModel.setId(question_id);
             questionModel.setTitle(title);
+            questionModel.setAnswers(Answer.parseArray(answers));
             return questionModel;
         }
 
@@ -54,6 +58,33 @@ public class GetQuestionsResponse extends ApiResponse {
 
         OwnerModel parse() {
             return new OwnerModel(user_id, user_type, display_name, reputation, accept_rate, profile_image);
+        }
+    }
+    private static class Answer {
+        int score;
+        Owner owner;
+        int answer_id;
+        int creation_date;
+        String body;
+
+        AnswerModel parse() {
+            AnswerModel answerModel = new AnswerModel();
+            answerModel.setOwner(owner.parse());
+            answerModel.setCreationTimestamp(creation_date);
+            answerModel.setScore(score);
+            answerModel.setId(answer_id);
+            answerModel.setBody(body);
+            return answerModel;
+        }
+
+        public static ArrayList<AnswerModel> parseArray(Answer[] answers) {
+            ArrayList<AnswerModel> answerList = new ArrayList<>();
+
+            for (Answer answer : answers) {
+                answerList.add(answer.parse());
+            }
+
+            return answerList;
         }
     }
 }
