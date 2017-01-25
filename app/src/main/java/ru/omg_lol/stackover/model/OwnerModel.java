@@ -9,6 +9,15 @@ public class OwnerModel {
     private int mAcceptRate;
     private String mProfileImage;
 
+    public OwnerModel(int userId, String userType, String displayName, int reputation, int acceptRate, String profileImage) {
+        mUserId = userId;
+        mUserType = userType;
+        mDisplayName = displayName;
+        mReputation = reputation;
+        mAcceptRate = acceptRate;
+        mProfileImage = profileImage;
+    }
+
     public int getUserId() {
         return mUserId;
     }
@@ -26,24 +35,5 @@ public class OwnerModel {
     }
     public String getProfileImage() {
         return mProfileImage;
-    }
-
-    public void setUserId(int newValue) {
-        mUserId = newValue;
-    }
-    public void setUserType(String newValue) {
-        mUserType = newValue;
-    }
-    public void setUserName(String newValue) {
-        mDisplayName = newValue;
-    }
-    public void setReputation(int newValue) {
-        mReputation = newValue;
-    }
-    public void setAcceptRate(int newValue) {
-        mAcceptRate = newValue;
-    }
-    public void setProfileImage(String newValue) {
-        mProfileImage = newValue;
     }
 }
