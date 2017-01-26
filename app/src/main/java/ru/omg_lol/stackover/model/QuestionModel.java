@@ -75,6 +75,9 @@ public class QuestionModel {
     public void setCreationTimestamp(int newValue) {
         mCreationTimestamp = newValue;
     }
+    public int getCreationTimestamp() {
+        return mCreationTimestamp;
+    }
 
     public int getId() {
         return mQuestionId;

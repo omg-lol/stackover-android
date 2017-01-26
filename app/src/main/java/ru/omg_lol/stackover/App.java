@@ -5,19 +5,29 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 
 import ru.omg_lol.stackover.activity.common.BaseActivity;
 import ru.omg_lol.stackover.api.ApiService;
+import ru.omg_lol.stackover.database.DBHelper;
 import timber.log.Timber;
 
 public class App extends Application implements ServiceConnection {
     private static App sInstance;
+    private static DBHelper mDbHelper;
+    private static SQLiteDatabase mDatabase;
 
     private BaseActivity mCurrentActivity;
 
     public static App get() {
         return sInstance;
+    }
+    public static DBHelper getDBHelper() {
+        return mDbHelper;
+    }
+    public static SQLiteDatabase getDatabase() {
+        return mDatabase;
     }
 
     @Override
@@ -26,6 +36,8 @@ public class App extends Application implements ServiceConnection {
         Timber.plant(new Timber.DebugTree());
 
         sInstance = this;
+        mDbHelper = new DBHelper(getApplicationContext());
+        mDatabase = mDbHelper.getWritableDatabase();
 
         bindApiService();
     }

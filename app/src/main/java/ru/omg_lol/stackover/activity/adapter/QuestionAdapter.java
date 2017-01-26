@@ -28,10 +28,6 @@ public class QuestionAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public ArrayList<QuestionModel> getItems() {
-        return mItems;
-    }
-
     @Override
     public int getCount() {
         return mItems.size();
